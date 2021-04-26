@@ -1,0 +1,20 @@
+{
+    "path": "path/to/folder",
+    "time_limit": 0.3,
+    "memory_limit": 200,
+
+    "filename": "main.cpp",
+    "input_file": "input.in",
+    "output_file": "output.out",
+
+    "flags":
+    [
+        "g++",
+        "-O2",
+        "main.cpp",
+        "-fsanitize=address,undefined,signed-integer-overflow",
+        "-std=c++17",
+        "-o",
+        "a.out"
+    ]
+}
