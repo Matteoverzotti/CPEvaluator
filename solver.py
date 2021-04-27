@@ -51,7 +51,7 @@ class Solver:
 
             finished = False
             process = subprocess.run(
-                ["./a.out"], capture_output = True, text = True
+                    ["./{}".format(constants.EXECUTABLE)], capture_output = True, text = True
             )  # Execute the program
             finished = True
             

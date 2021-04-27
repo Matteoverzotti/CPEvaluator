@@ -31,6 +31,9 @@ FILE = parameters['filename']
 INPUT = parameters['input_file']
 OUTPUT = parameters['output_file']
 
+for EXECUTABLE in parameters['flags']:
+    pass
+
 # These are actually variables
 EXEC_TIME = 0
 MEMORY_USED = 0
