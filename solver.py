@@ -51,9 +51,12 @@ class Solver:
 
             finished = False
             process = subprocess.run(
-                ["./a.out"], stdout = subprocess.DEVNULL, stderr = subprocess.DEVNULL
+                ["./a.out"], capture_output = True, text = True
             )  # Execute the program
             finished = True
+            
+            if process.stderr.find('runtime error') != -1:
+                process.returncode = 1
 
         def Memory_Check():
             process = subprocess.run(["valgrind", "--tool=memcheck", "./a.out"], 
@@ -92,7 +95,7 @@ class Solver:
             time.sleep(0.01)
             pass
         
-        constants.EXEC_TIME = max((datetime.now() - startTime).seconds 
+        constants.EXEC_TIME = min((datetime.now() - startTime).seconds 
                 + (datetime.now() - startTime).microseconds / 1000000, constants.TIME_LIMIT)
         if finished == False:  # TLE
             constants.EXEC_TIME = constants.TIME_LIMIT
