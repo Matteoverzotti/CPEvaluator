@@ -59,7 +59,7 @@ class Solver:
                 process.returncode = 1
 
         def Memory_Check():
-            process = subprocess.run(["valgrind", "--tool=memcheck", "./a.out"], 
+            process = subprocess.run(["valgrind", "--tool=memcheck", "./{}".format(constants.EXECUTABLE)], 
                                      capture_output = True, 
                                      text = True
             )
